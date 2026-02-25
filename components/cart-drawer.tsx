@@ -108,9 +108,11 @@ export function CartDrawer() {
               <span className="text-foreground font-semibold">Total:</span>
               <span className="text-accent text-2xl font-bold">${getTotal().toFixed(2)}</span>
             </div>
-            <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" size="lg">
-              Checkout
-            </Button>
+            <Link href="/checkout">
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" size="lg" onClick={toggleCart}>
+                Checkout
+              </Button>
+            </Link>
             <Button
               variant="outline"
               className="w-full"

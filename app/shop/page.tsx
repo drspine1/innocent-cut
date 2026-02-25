@@ -24,11 +24,7 @@ export default function ShopPage() {
     }, 2000)
   }
 
-  const categories = ['All', ...new Set(products.map(p => p.category))]
-  const [selectedCategory, setSelectedCategory] = useState('All')
-
-  const filteredProducts =
-    selectedCategory === 'All' ? products : products.filter(p => p.category === selectedCategory)
+  const filteredProducts = products
 
   return (
     <>
@@ -52,28 +48,6 @@ export default function ShopPage() {
       {/* Shop */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-6xl mx-auto">
-          {/* Categories */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-3 mb-12 justify-center"
-          >
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-accent text-accent-foreground'
-                    : 'bg-card border border-border text-foreground hover:border-accent'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </motion.div>
-
           {/* Products Grid */}
           <motion.div
             variants={containerVariants}

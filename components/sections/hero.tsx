@@ -7,8 +7,17 @@ import { fadeInUp, containerVariants, itemVariants } from '@/lib/animations'
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-card via-background to-background">
-      {/* Background decoration */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/images/hero.jpg)',
+          filter: 'brightness(0.4)',
+        }}
+      />
+      
+      {/* Background decoration overlay */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 rounded-full bg-accent/10 -top-40 -right-40 blur-3xl" />
         <div className="absolute w-96 h-96 rounded-full bg-accent/5 -bottom-40 -left-40 blur-3xl" />

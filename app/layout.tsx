@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+  openGraph: {
+    title: 'Innocent-Cut | Premium Barbing Salon',
+    description: 'Experience luxury grooming at Innocent-Cut',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -39,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body className="font-sans antialiased bg-background text-foreground">
         <CartProvider>
           <BookingProvider>

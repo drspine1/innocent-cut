@@ -2,12 +2,14 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Menu, X, ShoppingBag } from 'lucide-react'
 import { useCart } from '@/lib/context'
 import { Button } from '@/components/ui/button'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
   const { getCartCount, state, toggleCart } = useCart()
   const cartCount = getCartCount()
 
@@ -19,6 +21,11 @@ export function Header() {
     { href: '/shop', label: 'Shop' },
     { href: '/contact', label: 'Contact' },
   ]
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border">
@@ -35,7 +42,11 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground hover:text-accent transition-colors text-sm font-medium"
+                className={`text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? 'text-accent font-semibold'
+                    : 'text-foreground hover:text-accent'
+                }`}
               >
                 {link.label}
               </Link>
@@ -84,7 +95,11 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 text-foreground hover:bg-card hover:text-accent transition-colors rounded-md"
+                className={`block px-4 py-2 transition-colors rounded-md ${
+                  isActive(link.href)
+                    ? 'bg-card/50 text-accent font-semibold'
+                    : 'text-foreground hover:bg-card hover:text-accent'
+                }`}
               >
                 {link.label}
               </Link>
