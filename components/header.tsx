@@ -62,7 +62,7 @@ export function Header() {
               className="relative p-2 text-foreground hover:text-accent transition-colors"
               aria-label="Shopping cart"
             >
-              <ShoppingBag className="w-6 h-6" />
+              <FiShoppingBag className="w-6 h-6" />
               {cartCount > 0 && (
                 <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-background transform translate-x-1/2 -translate-y-1/2 bg-accent rounded-full">
                   {cartCount}

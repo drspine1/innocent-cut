@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Award, Briefcase, Star } from 'lucide-react'
+import { MdEmojiEvents, MdBusinessCenter } from 'react-icons/md'
+import { FaStar } from 'react-icons/fa'
 
 export default function BarbersPage() {
   return (
@@ -80,7 +81,7 @@ export default function BarbersPage() {
                   {/* Specialties and experience */}
                   <div className="space-y-3 mb-4">
                     <div className="flex items-start gap-3">
-                      <Briefcase className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <MdBusinessCenter className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-xs text-muted-foreground">Specialty</p>
                         <p className="text-foreground font-medium">{barber.specialty}</p>
@@ -88,7 +89,7 @@ export default function BarbersPage() {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <Award className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <MdEmojiEvents className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-xs text-muted-foreground">Experience</p>
                         <p className="text-foreground font-medium">{barber.experience} Years</p>
@@ -96,7 +97,7 @@ export default function BarbersPage() {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <Star className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <FaStar className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-xs text-muted-foreground">Rating</p>
                         <p className="text-foreground font-medium">5.0 - Highly Rated</p>

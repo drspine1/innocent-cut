@@ -5,7 +5,7 @@ import { useCart } from '@/lib/context'
 import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
-import { ShoppingCart } from 'lucide-react'
+import { MdAddShoppingCart } from 'react-icons/md'
 import { useState } from 'react'
 
 export default function ShopPage() {
@@ -93,7 +93,7 @@ export default function ShopPage() {
                           : 'bg-accent text-accent-foreground hover:bg-accent/90'
                       }`}
                     >
-                      <ShoppingCart className="w-5 h-5" />
+                      <MdAddShoppingCart className="w-5 h-5" />
                     </motion.button>
                   </div>
 

@@ -6,7 +6,8 @@ import { useCart } from '@/lib/context'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ChevronLeft, CheckCircle } from 'lucide-react'
+import { IoChevronBack } from 'react-icons/io5'
+import { MdCheckCircle } from 'react-icons/md'
 
 export default function CheckoutPage() {
   const router = useRouter()
@@ -62,7 +63,7 @@ export default function CheckoutPage() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring' }}
           >
-            <CheckCircle className="w-24 h-24 text-accent mx-auto mb-6" />
+            <MdCheckCircle className="w-24 h-24 text-accent mx-auto mb-6" />
           </motion.div>
 
           <h1 className="text-4xl font-bold text-foreground mb-4">Order Confirmed!</h1>
@@ -99,7 +100,7 @@ export default function CheckoutPage() {
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-card to-background border-b border-border">
         <div className="max-w-6xl mx-auto">
           <Link href="/shop" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 mb-4">
-            <ChevronLeft className="w-4 h-4" />
+            <IoChevronBack className="w-4 h-4" />
             Back to Shop
           </Link>
           <h1 className="text-4xl font-bold text-foreground">Checkout</h1>

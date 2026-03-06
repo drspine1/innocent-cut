@@ -4,7 +4,8 @@ import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { IoLocationSharp, IoCall, IoMailSharp } from 'react-icons/io5'
+import { GoClock } from 'react-icons/go'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -63,7 +64,7 @@ export default function ContactPage() {
           >
             {/* Address */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <MapPin className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <IoLocationSharp className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Address</h3>
                 <p className="text-muted-foreground">123 Premium Avenue</p>
@@ -73,7 +74,7 @@ export default function ContactPage() {
 
             {/* Phone */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <Phone className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <IoCall className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Phone</h3>
                 <a href="tel:+15551234567" className="text-accent hover:text-accent/80 transition-colors">
@@ -84,7 +85,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <Mail className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <IoMailSharp className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Email</h3>
                 <a href="mailto:info@innocent-cut.com" className="text-accent hover:text-accent/80 transition-colors">
@@ -95,7 +96,7 @@ export default function ContactPage() {
 
             {/* Hours */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <Clock className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <GoClock className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Hours</h3>
                 <p className="text-muted-foreground">Monday - Friday: 9:00 AM - 7:00 PM</p>
@@ -223,7 +224,7 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Visit Us</h2>
             <div className="w-full h-96 bg-background rounded-lg border border-border flex items-center justify-center">
               <div className="text-center">
-                <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
+                <IoLocationSharp className="w-12 h-12 text-accent mx-auto mb-4" />
                 <p className="text-muted-foreground">Map location: 123 Premium Avenue, New York, NY 10001</p>
               </div>
             </div>
