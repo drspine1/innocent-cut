@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
-import { Clock, DollarSign } from 'lucide-react'
+import { GoClock } from 'react-icons/go'
+import { FiDollarSign } from 'react-icons/fi'
 
 export default function ServicesPage() {
   return (
@@ -64,11 +65,11 @@ export default function ServicesPage() {
                     {/* Details */}
                     <div className="flex items-center gap-6 mb-4">
                       <div className="flex items-center gap-2">
-                        <DollarSign className="w-5 h-5 text-accent" />
+                        <FiDollarSign className="w-5 h-5 text-accent" />
                         <span className="text-foreground font-semibold">${service.price}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="w-5 h-5 text-accent" />
+                        <GoClock className="w-5 h-5 text-accent" />
                         <span className="text-foreground font-semibold">{service.duration} min</span>
                       </div>
                     </div>

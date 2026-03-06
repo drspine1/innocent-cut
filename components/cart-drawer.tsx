@@ -1,7 +1,9 @@
 'use client'
 
 import { useCart } from '@/lib/context'
-import { X, Plus, Minus, Trash2 } from 'lucide-react'
+import { IoClose } from 'react-icons/io5'
+import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import { MdDelete } from 'react-icons/md'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -33,7 +35,7 @@ export function CartDrawer() {
         <div className="flex items-center justify-between p-6 border-b border-border">
           <h2 className="text-2xl font-bold text-foreground">Shopping Cart</h2>
           <button onClick={toggleCart} className="text-foreground hover:text-accent transition-colors">
-            <X className="w-6 h-6" />
+            <IoClose className="w-6 h-6" />
           </button>
         </div>
 
@@ -76,14 +78,14 @@ export function CartDrawer() {
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
                         className="p-1 hover:bg-card rounded transition-colors"
                       >
-                        <Minus className="w-4 h-4 text-foreground" />
+                        <AiOutlineMinus className="w-4 h-4 text-foreground" />
                       </button>
                       <span className="w-8 text-center text-foreground">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         className="p-1 hover:bg-card rounded transition-colors"
                       >
-                        <Plus className="w-4 h-4 text-foreground" />
+                        <AiOutlinePlus className="w-4 h-4 text-foreground" />
                       </button>
                     </div>
                   </div>
@@ -93,7 +95,7 @@ export function CartDrawer() {
                     onClick={() => removeFromCart(item.id)}
                     className="p-2 hover:bg-destructive/10 rounded transition-colors"
                   >
-                    <Trash2 className="w-5 h-5 text-destructive" />
+                    <MdDelete className="w-5 h-5 text-destructive" />
                   </button>
                 </motion.div>
               ))}

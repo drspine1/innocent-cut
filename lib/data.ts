@@ -38,7 +38,7 @@ export const services: Service[] = [
     description: 'Precision haircut with traditional fade and line-up. Perfect for maintaining a sharp, polished look.',
     price: 35,
     duration: 30,
-    image: 'https://images.unsplash.com/photo-1585747860715-cd4628902d4a?w=400&h=300&fit=crop',
+    image: '/images/service-fade.jpg',
   },
   {
     id: 'premium-cut',
@@ -46,7 +46,7 @@ export const services: Service[] = [
     description: 'Custom design haircut with intricate patterns, detailed fade, and personalized styling consultation.',
     price: 50,
     duration: 45,
-    image: 'https://images.unsplash.com/photo-1599210611109-dac3d7b27424?w=400&h=300&fit=crop',
+    image: '/images/service-design.jpg',
   },
   {
     id: 'beard-trim',
@@ -54,7 +54,7 @@ export const services: Service[] = [
     description: 'Professional beard grooming with shaping, trimming, and conditioning for a refined appearance.',
     price: 25,
     duration: 20,
-    image: 'https://images.unsplash.com/photo-1607890591518-bab43f265416?w=400&h=300&fit=crop',
+    image: '/images/service-beard.jpg',
   },
   {
     id: 'hot-shave',
@@ -62,7 +62,7 @@ export const services: Service[] = [
     description: 'Luxurious hot towel shave with premium products, facial massage, and skincare treatment.',
     price: 40,
     duration: 35,
-    image: 'https://images.unsplash.com/photo-1621905167918-48416bd8575a?w=400&h=300&fit=crop',
+    image: '/images/service-shave.jpg',
   },
   {
     id: 'combo-package',
@@ -70,7 +70,7 @@ export const services: Service[] = [
     description: 'Complete grooming experience: premium cut, beard trim, hot shave, and skincare treatment.',
     price: 100,
     duration: 90,
-    image: 'https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=400&h=300&fit=crop',
+    image: '/images/service-fade.jpg',
   },
   {
     id: 'line-up',
@@ -78,7 +78,7 @@ export const services: Service[] = [
     description: 'Precision line-up service with detailed edge work and facial hair detailing.',
     price: 15,
     duration: 15,
-    image: 'https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=400&h=300&fit=crop',
+    image: '/images/service-kids.jpg',
   },
 ]
 
@@ -114,28 +114,44 @@ export const barbers: Barber[] = [
 
 export const products: Product[] = [
   {
+    id: 'pomade',
+    name: 'Premium Hair Pomade',
+    description: 'Luxurious styling pomade with strong hold and brilliant shine for the perfect finish.',
+    price: 32,
+    category: 'Hair Care',
+    image: '/images/product-pomade.jpg',
+  },
+  {
+    id: 'hair-clay',
+    name: 'Matte Hair Clay',
+    description: 'Versatile styling clay for texture and natural matte finish. Perfect for contemporary styles.',
+    price: 30,
+    category: 'Hair Care',
+    image: '/images/product-clay.jpg',
+  },
+  {
     id: 'beard-oil',
     name: 'Premium Beard Oil',
-    description: 'Luxurious blend of argan, jojoba, and sandalwood oil for optimal beard conditioning.',
+    description: 'Nourishing blend of natural oils that softens and conditions facial hair. Perfect for daily use.',
     price: 28,
     category: 'Beard Care',
-    image: 'https://images.unsplash.com/photo-1597318911379-f96d4e2ad5e0?w=300&h=300&fit=crop',
+    image: '/images/product-beard-oil.jpg',
   },
   {
-    id: 'hair-pomade',
-    name: 'Matte Finish Pomade',
-    description: 'Strong hold styling pomade with matte finish. Perfect for textured and designed cuts.',
-    price: 32,
-    category: 'Hair Styling',
-    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=300&h=300&fit=crop',
-  },
-  {
-    id: 'shaving-cream',
-    name: 'Luxury Shaving Cream',
-    description: 'Rich, creamy shaving formula with moisturizing properties and pleasant fragrance.',
+    id: 'shampoo',
+    name: 'Luxury Shampoo',
+    description: 'Rich, gentle shampoo formula for all hair types with moisturizing properties.',
     price: 24,
-    category: 'Shaving',
-    image: 'https://images.unsplash.com/photo-1552821884-5fefe8c9ef14?w=300&h=300&fit=crop',
+    category: 'Hair Care',
+    image: '/images/product-shampoo.jpg',
+  },
+  {
+    id: 'conditioner',
+    name: 'Premium Conditioner',
+    description: 'Deep conditioning treatment that nourishes and strengthens hair.',
+    price: 26,
+    category: 'Hair Care',
+    image: '/images/product-conditioner.jpg',
   },
   {
     id: 'aftershave-balm',
@@ -143,23 +159,7 @@ export const products: Product[] = [
     description: 'Soothing balm with antiseptic properties. Moisturizes and protects sensitive skin.',
     price: 26,
     category: 'Skincare',
-    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop',
-  },
-  {
-    id: 'beard-butter',
-    name: 'Beard Butter',
-    description: 'Lightweight conditioning butter that softens and tames facial hair. Easy to apply and absorbs quickly.',
-    price: 30,
-    category: 'Beard Care',
-    image: 'https://images.unsplash.com/photo-1597318911379-f96d4e2ad5e0?w=300&h=300&fit=crop',
-  },
-  {
-    id: 'head-wash',
-    name: 'Premium Head Wash',
-    description: 'Gentle yet effective shampoo for all hair types. Cleanses without stripping natural oils.',
-    price: 22,
-    category: 'Hair Care',
-    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop',
+    image: '/images/product-aftershave.jpg',
   },
 ]
 

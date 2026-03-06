@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ShoppingBag } from 'lucide-react'
+import { IoMenu, IoClose } from 'react-icons/io5'
+import { FiShoppingBag } from 'react-icons/fi'
 import { useCart } from '@/lib/context'
 import { Button } from '@/components/ui/button'
 
@@ -77,13 +78,17 @@ export function Header() {
             </Link>
 
             {/* Mobile menu button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex md:hidden p-2 text-foreground hover:text-accent transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+          <button
+            onClick={toggleCart}
+            className="relative text-foreground hover:text-accent transition-colors"
+          >
+            <FiShoppingBag size={20} />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
+          </button>
           </div>
         </div>
 

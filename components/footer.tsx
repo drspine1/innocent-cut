@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Facebook, Instagram, Twitter } from 'lucide-react'
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 export function Footer() {
   return (
@@ -90,7 +90,7 @@ export function Footer() {
                 className="text-muted-foreground hover:text-accent transition-colors"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <FaFacebook className="w-5 h-5" />
               </a>
               <a
                 href="https://instagram.com"
@@ -99,7 +99,7 @@ export function Footer() {
                 className="text-muted-foreground hover:text-accent transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <FaInstagram className="w-5 h-5" />
               </a>
               <a
                 href="https://twitter.com"
@@ -108,7 +108,7 @@ export function Footer() {
                 className="text-muted-foreground hover:text-accent transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <FaTwitter className="w-5 h-5" />
               </a>
             </div>
           </div>

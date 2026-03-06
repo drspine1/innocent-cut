@@ -35,8 +35,8 @@ export const containerVariants: Variants = {
   animate: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
+      staggerChildren: 0.02,
+      delayChildren: 0.05,
     },
   },
 }
@@ -46,6 +46,6 @@ export const itemVariants: Variants = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.3 },
+    transition: { duration: 0.2 },
   },
 }
