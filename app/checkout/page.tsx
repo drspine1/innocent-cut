@@ -6,12 +6,11 @@ import { useCart } from '@/lib/context'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { IoChevronBack } from 'react-icons/io5'
-import { MdCheckCircle } from 'react-icons/md'
+import { ChevronLeft, CheckCircle } from 'lucide-react'
 
 export default function CheckoutPage() {
   const router = useRouter()
-  const { state, getTotalPrice, clearCart } = useCart()
+  const { state, getTotal, clearCart } = useCart()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [formData, setFormData] = useState({
@@ -63,7 +62,7 @@ export default function CheckoutPage() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring' }}
           >
-            <MdCheckCircle className="w-24 h-24 text-accent mx-auto mb-6" />
+            <CheckCircle className="w-24 h-24 text-accent mx-auto mb-6" />
           </motion.div>
 
           <h1 className="text-4xl font-bold text-foreground mb-4">Order Confirmed!</h1>
@@ -100,7 +99,7 @@ export default function CheckoutPage() {
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-card to-background border-b border-border">
         <div className="max-w-6xl mx-auto">
           <Link href="/shop" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 mb-4">
-            <IoChevronBack className="w-4 h-4" />
+            <ChevronLeft className="w-4 h-4" />
             Back to Shop
           </Link>
           <h1 className="text-4xl font-bold text-foreground">Checkout</h1>
@@ -242,7 +241,7 @@ export default function CheckoutPage() {
                   disabled={isSubmitting || state.items.length === 0}
                   className="w-full bg-accent text-accent-foreground hover:bg-accent/90 py-3 text-lg"
                 >
-                  {isSubmitting ? 'Processing...' : `Complete Purchase - $${getTotalPrice().toFixed(2)}`}
+                  {isSubmitting ? 'Processing...' : `Complete Purchase - $${getTotal().toFixed(2)}`}
                 </Button>
               </form>
             </motion.div>
@@ -259,12 +258,12 @@ export default function CheckoutPage() {
 
                 <div className="space-y-4 mb-6 max-h-64 overflow-y-auto">
                   {state.items.map(item => (
-                    <div key={item.product.id} className="flex justify-between items-start pb-4 border-b border-border">
+                    <div key={item.id} className="flex justify-between items-start pb-4 border-b border-border">
                       <div className="flex-1">
-                        <p className="font-medium text-foreground">{item.product.name}</p>
+                        <p className="font-medium text-foreground">{item.name}</p>
                         <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
                       </div>
-                      <p className="font-bold text-accent">${(item.product.price * item.quantity).toFixed(2)}</p>
+                      <p className="font-bold text-accent">${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                   ))}
                 </div>
@@ -272,7 +271,7 @@ export default function CheckoutPage() {
                 <div className="space-y-3 border-t border-border pt-6">
                   <div className="flex justify-between text-muted-foreground">
                     <span>Subtotal</span>
-                    <span>${getTotalPrice().toFixed(2)}</span>
+                    <span>${getTotal().toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-muted-foreground">
                     <span>Shipping</span>
@@ -284,7 +283,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="flex justify-between text-lg font-bold text-foreground border-t border-border pt-3">
                     <span>Total</span>
-                    <span className="text-accent">${getTotalPrice().toFixed(2)}</span>
+                    <span className="text-accent">${getTotal().toFixed(2)}</span>
                   </div>
                 </div>
 

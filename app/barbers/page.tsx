@@ -5,8 +5,16 @@ import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { MdEmojiEvents, MdBusinessCenter } from 'react-icons/md'
-import { FaStar } from 'react-icons/fa'
+import { Award, Briefcase, Star, GraduationCap, Wrench, MessageCircle } from 'lucide-react'
+
+'use client'
+
+import { barbers } from '@/lib/data'
+import { motion } from 'framer-motion'
+import { containerVariants, itemVariants } from '@/lib/animations'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { Award, Briefcase, Star, GraduationCap, Wrench, MessageCircle } from 'lucide-react'
 
 export default function BarbersPage() {
   return (
@@ -81,7 +89,7 @@ export default function BarbersPage() {
                   {/* Specialties and experience */}
                   <div className="space-y-3 mb-4">
                     <div className="flex items-start gap-3">
-                      <MdBusinessCenter className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <Briefcase className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-xs text-muted-foreground">Specialty</p>
                         <p className="text-foreground font-medium">{barber.specialty}</p>
@@ -89,7 +97,7 @@ export default function BarbersPage() {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <MdEmojiEvents className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <Award className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-xs text-muted-foreground">Experience</p>
                         <p className="text-foreground font-medium">{barber.experience} Years</p>
@@ -97,7 +105,7 @@ export default function BarbersPage() {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <FaStar className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <Star className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-xs text-muted-foreground">Rating</p>
                         <p className="text-foreground font-medium">5.0 - Highly Rated</p>
@@ -135,7 +143,7 @@ export default function BarbersPage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             <motion.div variants={itemVariants} className="p-8 bg-background rounded-lg border border-border">
-              <div className="text-4xl mb-4">🎓</div>
+              <GraduationCap className="w-10 h-10 text-accent mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-2">Certified Training</h3>
               <p className="text-muted-foreground">
                 All our barbers are certified and regularly attend training sessions to stay updated with latest techniques.
@@ -143,7 +151,7 @@ export default function BarbersPage() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="p-8 bg-background rounded-lg border border-border">
-              <div className="text-4xl mb-4">🛠️</div>
+              <Wrench className="w-10 h-10 text-accent mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-2">Premium Tools</h3>
               <p className="text-muted-foreground">
                 We invest in the best equipment and materials to ensure precision and comfort during every service.
@@ -151,7 +159,7 @@ export default function BarbersPage() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="p-8 bg-background rounded-lg border border-border">
-              <div className="text-4xl mb-4">💬</div>
+              <MessageCircle className="w-10 h-10 text-accent mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-2">Personal Attention</h3>
               <p className="text-muted-foreground">
                 Each client receives personalized consultation to ensure we deliver exactly what you're looking for.

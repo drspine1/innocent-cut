@@ -4,8 +4,7 @@ import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { IoLocationSharp, IoCall, IoMailSharp } from 'react-icons/io5'
-import { GoClock } from 'react-icons/go'
+import { MapPin, Phone, Mail, Clock, CheckCircle } from 'lucide-react'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -52,8 +51,20 @@ export default function ContactPage() {
       </section>
 
       {/* Contact content */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
+        {/* Faint background image */}
+        <div 
+          className="absolute inset-0 opacity-5 dark:opacity-[0.03]"
+          style={{
+            backgroundImage: 'url(/images/gallery-3.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        
+        {/* Content */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
           {/* Contact Info */}
           <motion.div
             variants={containerVariants}
@@ -64,7 +75,7 @@ export default function ContactPage() {
           >
             {/* Address */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <IoLocationSharp className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <MapPin className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Address</h3>
                 <p className="text-muted-foreground">123 Premium Avenue</p>
@@ -74,7 +85,7 @@ export default function ContactPage() {
 
             {/* Phone */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <IoCall className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <Phone className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Phone</h3>
                 <a href="tel:+15551234567" className="text-accent hover:text-accent/80 transition-colors">
@@ -85,7 +96,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <IoMailSharp className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <Mail className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Email</h3>
                 <a href="mailto:info@innocent-cut.com" className="text-accent hover:text-accent/80 transition-colors">
@@ -96,7 +107,7 @@ export default function ContactPage() {
 
             {/* Hours */}
             <motion.div variants={itemVariants} className="flex gap-4">
-              <GoClock className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+              <Clock className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Hours</h3>
                 <p className="text-muted-foreground">Monday - Friday: 9:00 AM - 7:00 PM</p>
@@ -120,7 +131,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center py-12 text-center"
               >
-                <div className="text-6xl mb-4">✓</div>
+                <CheckCircle className="w-16 h-16 text-accent mb-4" />
                 <h2 className="text-2xl font-bold text-foreground mb-2">Message Sent!</h2>
                 <p className="text-muted-foreground">Thank you for reaching out. We'll get back to you soon.</p>
               </motion.div>
@@ -224,7 +235,7 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Visit Us</h2>
             <div className="w-full h-96 bg-background rounded-lg border border-border flex items-center justify-center">
               <div className="text-center">
-                <IoLocationSharp className="w-12 h-12 text-accent mx-auto mb-4" />
+                <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
                 <p className="text-muted-foreground">Map location: 123 Premium Avenue, New York, NY 10001</p>
               </div>
             </div>

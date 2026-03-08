@@ -19,8 +19,25 @@ export function BookingForm() {
   const [showConfirmation, setShowConfirmation] = useState(false)
 
   const handleNext = () => {
-    if (currentStep < 6) {
+    if (currentStep < 6 && canProceed()) {
       setCurrentStep(currentStep + 1)
+    }
+  }
+
+  const canProceed = () => {
+    switch (currentStep) {
+      case 1:
+        return !!bookingData.serviceId
+      case 2:
+        return !!bookingData.barberId
+      case 3:
+        return !!bookingData.date && !!bookingData.time
+      case 4:
+        return !!bookingData.name && !!bookingData.email && !!bookingData.phone
+      case 5:
+        return true // Special requests are optional
+      default:
+        return false
     }
   }
 
@@ -30,12 +47,19 @@ export function BookingForm() {
     }
   }
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
+    // Simulate sending confirmation
     setShowConfirmation(true)
+    
+    // Simulate API calls for notifications
+    console.log('📧 Sending email confirmation to:', bookingData.email)
+    console.log('📱 Sending SMS confirmation to:', bookingData.phone)
+    console.log('🔔 Scheduling reminders for:', bookingData.date, bookingData.time)
+    
     setTimeout(() => {
       resetBooking()
       setShowConfirmation(false)
-    }, 3000)
+    }, 5000)
   }
 
   const steps = [
@@ -48,16 +72,77 @@ export function BookingForm() {
   ]
 
   if (showConfirmation) {
+    const selectedService = services.find(s => s.id === bookingData.serviceId)
+    const confirmationNumber = `IC-${Date.now().toString(36).toUpperCase()}`
+    
     return (
       <motion.div
         variants={fadeInUp}
         initial="initial"
         animate="animate"
-        className="flex flex-col items-center justify-center min-h-screen gap-4"
+        className="flex flex-col items-center justify-center min-h-[60vh] gap-6 text-center"
       >
-        <div className="text-6xl">✓</div>
-        <h2 className="text-3xl font-bold">Booking Confirmed!</h2>
-        <p className="text-muted-foreground">Your appointment has been scheduled successfully.</p>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.2, type: 'spring' }}
+          className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center"
+        >
+          <Check className="w-10 h-10 text-accent" />
+        </motion.div>
+        
+        <div>
+          <h2 className="text-3xl font-bold text-foreground mb-2">Booking Confirmed!</h2>
+          <p className="text-muted-foreground mb-4">Your appointment has been scheduled successfully.</p>
+          <p className="text-sm text-muted-foreground">
+            Confirmation #: <span className="font-mono font-semibold text-accent">{confirmationNumber}</span>
+          </p>
+        </div>
+
+        <div className="bg-card border border-border rounded-lg p-6 max-w-md w-full text-left">
+          <h3 className="font-semibold text-foreground mb-4">Appointment Details</h3>
+          <div className="space-y-3 text-sm">
+            <div>
+              <p className="text-muted-foreground">Service</p>
+              <p className="font-medium text-foreground">{selectedService?.name}</p>
+            </div>
+            <div>
+              <p className="text-muted-foreground">Date & Time</p>
+              <p className="font-medium text-foreground">
+                {new Date(bookingData.date!).toLocaleDateString('en-US', {
+                  weekday: 'long',
+                  month: 'long',
+                  day: 'numeric',
+                })} at {bookingData.time}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-accent/10 border border-accent rounded-lg p-4 max-w-md w-full">
+          <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Check className="w-4 h-4 text-accent" />
+            Notifications Sent
+          </h3>
+          <div className="space-y-2 text-sm">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Check className="w-3 h-3 text-green-500" />
+              <span>Email confirmation sent to {bookingData.email}</span>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Check className="w-3 h-3 text-green-500" />
+              <span>SMS confirmation sent to {bookingData.phone}</span>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Check className="w-3 h-3 text-green-500" />
+              <span>Reminder scheduled for 24 hours before</span>
+            </div>
+          </div>
+        </div>
+
+        <p className="text-sm text-muted-foreground">
+          Redirecting to home page...
+        </p>
       </motion.div>
     )
   }
@@ -130,7 +215,8 @@ export function BookingForm() {
         {currentStep < 6 && (
           <Button
             onClick={handleNext}
-            className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2"
+            disabled={!canProceed()}
+            className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Next
             <ChevronRight className="w-4 h-4" />

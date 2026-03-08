@@ -1,4 +1,14 @@
 import { BookingForm } from '@/components/booking/booking-form'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Book Appointment',
+  description: 'Book your appointment at Innocent-Cut. Choose your service, select your preferred barber, and pick a convenient time slot.',
+  openGraph: {
+    title: 'Book Appointment | Innocent-Cut',
+    description: 'Book your appointment at Innocent-Cut.',
+  },
+}
 
 export default function BookingPage() {
   return (

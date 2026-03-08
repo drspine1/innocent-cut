@@ -5,8 +5,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
-import { GoClock } from 'react-icons/go'
-import { FiDollarSign } from 'react-icons/fi'
+import { Clock, DollarSign, Sparkles, Target, Gem } from 'lucide-react'
 
 export default function ServicesPage() {
   return (
@@ -65,11 +64,11 @@ export default function ServicesPage() {
                     {/* Details */}
                     <div className="flex items-center gap-6 mb-4">
                       <div className="flex items-center gap-2">
-                        <FiDollarSign className="w-5 h-5 text-accent" />
+                        <DollarSign className="w-5 h-5 text-accent" />
                         <span className="text-foreground font-semibold">${service.price}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <GoClock className="w-5 h-5 text-accent" />
+                        <Clock className="w-5 h-5 text-accent" />
                         <span className="text-foreground font-semibold">{service.duration} min</span>
                       </div>
                     </div>
@@ -92,33 +91,47 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mt-20 pt-20 border-t border-border"
+            className="mt-20 pt-20 border-t border-border relative overflow-hidden"
           >
-            <h2 className="text-4xl font-bold mb-12 text-center">Why Choose Innocent-Cut?</h2>
+            {/* Faint background image */}
+            <div 
+              className="absolute inset-0 opacity-5 dark:opacity-[0.03]"
+              style={{
+                backgroundImage: 'url(/images/service-fade.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+            />
+            
+            {/* Content */}
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold mb-12 text-center">Why Choose Innocent-Cut?</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-card p-8 rounded-lg border border-border hover:border-accent transition-colors">
-                <div className="text-4xl font-bold text-accent mb-4">✨</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Expert Barbers</h3>
-                <p className="text-muted-foreground">
-                  Our master barbers bring years of expertise and artistic vision to every cut.
-                </p>
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-card p-8 rounded-lg border border-border hover:border-accent transition-colors">
+                  <Sparkles className="w-10 h-10 text-accent mb-4" />
+                  <h3 className="text-xl font-bold text-foreground mb-2">Expert Barbers</h3>
+                  <p className="text-muted-foreground">
+                    Our master barbers bring years of expertise and artistic vision to every cut.
+                  </p>
+                </div>
 
-              <div className="bg-card p-8 rounded-lg border border-border hover:border-accent transition-colors">
-                <div className="text-4xl font-bold text-accent mb-4">🎯</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Premium Quality</h3>
-                <p className="text-muted-foreground">
-                  We use only premium products and maintain the highest standards in grooming.
-                </p>
-              </div>
+                <div className="bg-card p-8 rounded-lg border border-border hover:border-accent transition-colors">
+                  <Target className="w-10 h-10 text-accent mb-4" />
+                  <h3 className="text-xl font-bold text-foreground mb-2">Premium Quality</h3>
+                  <p className="text-muted-foreground">
+                    We use only premium products and maintain the highest standards in grooming.
+                  </p>
+                </div>
 
-              <div className="bg-card p-8 rounded-lg border border-border hover:border-accent transition-colors">
-                <div className="text-4xl font-bold text-accent mb-4">💎</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Luxury Experience</h3>
-                <p className="text-muted-foreground">
-                  Every visit is a premium experience designed for ultimate relaxation and satisfaction.
-                </p>
+                <div className="bg-card p-8 rounded-lg border border-border hover:border-accent transition-colors">
+                  <Gem className="w-10 h-10 text-accent mb-4" />
+                  <h3 className="text-xl font-bold text-foreground mb-2">Luxury Experience</h3>
+                  <p className="text-muted-foreground">
+                    Every visit is a premium experience designed for ultimate relaxation and satisfaction.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.section>

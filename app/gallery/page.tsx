@@ -4,7 +4,19 @@ import { galleryImages } from '@/lib/data'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
-import { IoClose } from 'react-icons/io5'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { X } from 'lucide-react'
+
+'use client'
+
+import { galleryImages } from '@/lib/data'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { containerVariants, itemVariants } from '@/lib/animations'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { X } from 'lucide-react'
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<(typeof galleryImages)[0] | null>(null)
@@ -91,7 +103,7 @@ export default function GalleryPage() {
               onClick={() => setSelectedImage(null)}
               className="absolute -top-12 right-0 text-white hover:text-accent transition-colors"
             >
-              <IoClose className="w-8 h-8" />
+              <X className="w-8 h-8" />
             </button>
 
             {/* Image */}

@@ -5,7 +5,7 @@ import { services, barbers } from '@/lib/data'
 import { motion } from 'framer-motion'
 import { itemVariants } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
-import { Check } from 'lucide-react'
+import { Check, Mail, MessageSquare, Bell, Calendar } from 'lucide-react'
 
 export default function StepSix({ onConfirm }: { onConfirm: () => void }) {
   const { bookingData } = useBooking()
@@ -94,12 +94,43 @@ export default function StepSix({ onConfirm }: { onConfirm: () => void }) {
           )}
         </div>
 
+        {/* Notifications info */}
+        <div className="bg-card rounded-lg border border-border p-4">
+          <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Bell className="w-4 h-4 text-accent" />
+            You'll receive notifications
+          </h3>
+          <div className="space-y-2">
+            <div className="flex items-start gap-3 text-sm">
+              <Mail className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-foreground font-medium">Email Confirmation</p>
+                <p className="text-muted-foreground text-xs">Instant confirmation to {bookingData.email}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-sm">
+              <MessageSquare className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-foreground font-medium">SMS Reminder</p>
+                <p className="text-muted-foreground text-xs">Text reminder 24 hours before to {bookingData.phone}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-sm">
+              <Calendar className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-foreground font-medium">Calendar Invite</p>
+                <p className="text-muted-foreground text-xs">Add to your calendar with one click</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Confirmation message */}
         <div className="bg-accent/10 border border-accent rounded-lg p-4 flex gap-3">
           <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
           <div>
             <p className="font-semibold text-foreground">Booking is almost complete!</p>
-            <p className="text-sm text-muted-foreground">Click the button below to confirm your appointment</p>
+            <p className="text-sm text-muted-foreground">Click the button below to confirm your appointment and receive notifications</p>
           </div>
         </div>
       </motion.div>
@@ -109,8 +140,9 @@ export default function StepSix({ onConfirm }: { onConfirm: () => void }) {
         onClick={onConfirm}
         className="w-full mt-6 bg-accent text-accent-foreground hover:bg-accent/90 h-12 text-base font-semibold"
       >
-        Confirm Appointment
+        Confirm Appointment & Send Notifications
       </Button>
     </div>
   )
 }
+

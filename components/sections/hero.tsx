@@ -19,7 +19,7 @@ export function HeroSection() {
       
       {/* Background decoration overlay */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 rounded-full bg-accent/10 -top-40 -right-40 blur-3xl" />
+        <div className="absolute w-96 h-96 rounded-full bg-accent/7 -top-40 -right-40 blur-3xl" />
         <div className="absolute w-96 h-96 rounded-full bg-accent/5 -bottom-40 -left-40 blur-3xl" />
       </div>
 
@@ -39,7 +39,7 @@ export function HeroSection() {
 
         <motion.p
           variants={itemVariants}
-          className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance"
+          className="text-xl sm:text-2xl text-[#cedbe1]  mb-8 max-w-2xl mx-auto text-balance"
         >
           Discover the art of luxury barbering at Innocent-Cut. Where precision meets perfection.
         </motion.p>
@@ -58,25 +58,6 @@ export function HeroSection() {
               Explore Services
             </Button>
           </Link>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
-        >
-          <div>
-            <p className="text-3xl sm:text-4xl font-bold text-accent">15+</p>
-            <p className="text-muted-foreground mt-2">Expert Barbers</p>
-          </div>
-          <div>
-            <p className="text-3xl sm:text-4xl font-bold text-accent">5000+</p>
-            <p className="text-muted-foreground mt-2">Happy Clients</p>
-          </div>
-          <div>
-            <p className="text-3xl sm:text-4xl font-bold text-accent">10+</p>
-            <p className="text-muted-foreground mt-2">Years Experience</p>
-          </div>
         </motion.div>
       </motion.div>
 

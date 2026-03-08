@@ -5,7 +5,7 @@ import { useCart } from '@/lib/context'
 import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
-import { MdAddShoppingCart } from 'react-icons/md'
+import { ShoppingCart, Sparkles, Package, Award } from 'lucide-react'
 import { useState } from 'react'
 
 export default function ShopPage() {
@@ -93,7 +93,7 @@ export default function ShopPage() {
                           : 'bg-accent text-accent-foreground hover:bg-accent/90'
                       }`}
                     >
-                      <MdAddShoppingCart className="w-5 h-5" />
+                      <ShoppingCart className="w-5 h-5" />
                     </motion.button>
                   </div>
 
@@ -113,8 +113,20 @@ export default function ShopPage() {
       </section>
 
       {/* Information section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card border-t border-border">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card border-t border-border relative overflow-hidden">
+        {/* Faint background image */}
+        <div 
+          className="absolute inset-0 opacity-7 dark:opacity-[0.3]"
+          style={{
+            backgroundImage: 'url(/images/product-pomade.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        
+        {/* Content */}
+        <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +145,7 @@ export default function ShopPage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             <motion.div variants={itemVariants} className="text-center">
-              <div className="text-5xl mb-4">✨</div>
+              <Sparkles className="w-12 h-12 text-accent mx-auto mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-2">Premium Quality</h3>
               <p className="text-muted-foreground">
                 Hand-selected products that meet our high standards for quality and performance.
@@ -141,7 +153,7 @@ export default function ShopPage() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="text-center">
-              <div className="text-5xl mb-4">🧴</div>
+              <Package className="w-12 h-12 text-accent mx-auto mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-2">Professional Brands</h3>
               <p className="text-muted-foreground">
                 We carry only the best brands trusted by professional barbers worldwide.
@@ -149,7 +161,7 @@ export default function ShopPage() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="text-center">
-              <div className="text-5xl mb-4">🏆</div>
+              <Award className="w-12 h-12 text-accent mx-auto mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-2">Guaranteed Results</h3>
               <p className="text-muted-foreground">
                 Our products are proven to deliver exceptional results for all hair types and skin types.

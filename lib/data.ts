@@ -161,6 +161,14 @@ export const products: Product[] = [
     category: 'Skincare',
     image: '/images/product-aftershave.jpg',
   },
+  {
+    id: 'grooming-kit',
+    name: 'Professional Grooming Kit',
+    description: 'Complete grooming essentials set including professional clipper, premium beard oil, and styling comb. Everything you need for at-home maintenance.',
+    price: 85,
+    category: 'Grooming Tools',
+    image: '/images/cliper.jpg',
+  },
 ]
 
 export const bookingSteps: BookingStep[] = [
