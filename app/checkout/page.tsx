@@ -37,15 +37,15 @@ export default function CheckoutPage() {
     setIsSubmitting(true)
 
     // Simulate payment processing
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 3000)) // 3 seconds processing
 
     setIsSuccess(true)
     clearCart()
 
-    // Redirect after 3 seconds
+    // Redirect after 8 seconds
     setTimeout(() => {
       router.push('/')
-    }, 3000)
+    }, 8000) // 8 seconds to read confirmation
   }
 
   if (isSuccess) {

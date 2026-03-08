@@ -21,7 +21,7 @@ export default function ShopPage() {
         updated.delete(product.id)
         return updated
       })
-    }, 2000)
+    }, 3000) // 3 seconds to see "Added to Cart" message
   }
 
   const filteredProducts = products
@@ -116,7 +116,7 @@ export default function ShopPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card border-t border-border relative overflow-hidden">
         {/* Faint background image */}
         <div 
-          className="absolute inset-0 opacity-7 dark:opacity-[0.3]"
+          className="absolute inset-0 opacity-5 dark:opacity-[0.1]"
           style={{
             backgroundImage: 'url(/images/product-pomade.jpg)',
             backgroundSize: 'cover',

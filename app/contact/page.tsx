@@ -28,7 +28,7 @@ export default function ContactPage() {
     setTimeout(() => {
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
       setSubmitted(false)
-    }, 3000)
+    }, 5000) // 5 seconds to see success message
   }
 
   return (
@@ -54,7 +54,7 @@ export default function ContactPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
         {/* Faint background image */}
         <div 
-          className="absolute inset-0 opacity-5 dark:opacity-[0.03]"
+          className="absolute inset-0 opacity-5 dark:opacity-[0.1]"
           style={{
             backgroundImage: 'url(/images/gallery-3.jpg)',
             backgroundSize: 'cover',
@@ -224,7 +224,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map section placeholder */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-card border-t border-border">
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-card border-t border-border">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -232,7 +232,7 @@ export default function ContactPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Visit Us</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4 text-center">Visit Us</h2>
             <div className="w-full h-96 bg-background rounded-lg border border-border flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />

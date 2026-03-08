@@ -59,7 +59,7 @@ export function BookingForm() {
     setTimeout(() => {
       resetBooking()
       setShowConfirmation(false)
-    }, 5000)
+    }, 8000) // 8 seconds to read confirmation
   }
 
   const steps = [

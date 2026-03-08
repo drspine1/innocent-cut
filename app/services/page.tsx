@@ -43,7 +43,7 @@ export default function ServicesPage() {
                 variants={itemVariants}
                 className="group bg-card rounded-lg overflow-hidden border border-border hover:border-accent transition-all duration-300 hover:shadow-xl"
               >
-                <div className="flex gap-6">
+                <div className="flex gap-2 md:gap-6">
                   {/* Image */}
                   <div className="relative w-40 h-40 flex-shrink-0 overflow-hidden rounded-lg">
                     <img
@@ -95,7 +95,7 @@ export default function ServicesPage() {
           >
             {/* Faint background image */}
             <div 
-              className="absolute inset-0 opacity-5 dark:opacity-[0.03]"
+              className="absolute inset-0 opacity-5 dark:opacity-[0.1]"
               style={{
                 backgroundImage: 'url(/images/service-fade.jpg)',
                 backgroundSize: 'cover',
