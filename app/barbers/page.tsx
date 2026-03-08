@@ -1,11 +1,3 @@
-'use client'
-
-import { barbers } from '@/lib/data'
-import { motion } from 'framer-motion'
-import { containerVariants, itemVariants } from '@/lib/animations'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { Award, Briefcase, Star, GraduationCap, Wrench, MessageCircle } from 'lucide-react'
 
 'use client'
 

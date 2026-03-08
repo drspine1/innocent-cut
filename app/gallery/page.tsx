@@ -1,12 +1,4 @@
-'use client'
 
-import { galleryImages } from '@/lib/data'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { containerVariants, itemVariants } from '@/lib/animations'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { X } from 'lucide-react'
 
 'use client'
 
@@ -14,8 +6,6 @@ import { galleryImages } from '@/lib/data'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '@/lib/animations'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { X } from 'lucide-react'
 
 export default function GalleryPage() {
