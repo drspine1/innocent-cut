@@ -33,7 +33,7 @@ export function HeroSection() {
           variants={itemVariants}
           className="text-5xl sm:text-6xl lg:text-7xl font-bold text-balance mb-6"
         >
-          <span className="text-foreground">Experience Premium</span>{' '}
+          <span className="text-[#ffffff]">Experience Premium</span>{' '}
           <span className="text-accent">Grooming</span>
         </motion.h1>
 
